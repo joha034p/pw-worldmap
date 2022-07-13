@@ -145,6 +145,7 @@ function showName() {
   document.querySelector(".tooltiptext").innerHTML = `${countryTitle}`;
   document.querySelector(".tooltiptext").style.visibility = "visible";
   document.querySelector(".country-title").innerHTML = `${countryTitle}`;
+  document.querySelector(".siteLink").innerHTML = `Se alle vine fra ${countryTitle}`;
 }
 
 // Hide text on mouseout
@@ -169,11 +170,13 @@ function showPopup() {
   let closeBtn = document.getElementsByClassName("close")[0];
   let countryTitle = this.getAttribute("title");
   let lowerTitle = countryTitle.toLowerCase();
-  let formattedTitle = lowerTitle.replace(/\s/g, '');
-  let img = document.querySelector(".svg-container");
+  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
+  let img = document.querySelector(".svgfile");
   popup.style.display = "block";
 
   img.src = `img/${formattedTitle}.svg`;
+
+  document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`;
     
     // close on x
     closeBtn.onclick = function() {
