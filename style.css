@@ -1,10 +1,12 @@
 /* Global */
+* {
+  font-family: system-ui;
+}
+
 body {
   margin: 0;
   background-color: rgba(255,255,255,0);
 }
-
-/* test */
 
 svg {
   width: 100vw;
@@ -74,7 +76,6 @@ svg:active {
   width: 120px;
   background-color: #0000009a;
   color: #fff;
-  font-family: system-ui;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -95,6 +96,47 @@ svg:active {
   border-color: #0000009a transparent transparent transparent;
 }
 
+/* Country popup */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+  height: 70%;
+}
+
+.country-title {
+  text-align: center;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* 
 .amcharts-map-area-AR,

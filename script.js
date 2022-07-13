@@ -143,6 +143,7 @@ function showName() {
   let getCountryName = this.getAttribute("title");
   document.querySelector(".tooltiptext").innerHTML = `${getCountryName}`;
   document.querySelector(".tooltiptext").style.visibility = "visible";
+  document.querySelector(".country-title").innerHTML = `${getCountryName}`;
 }
 
 // Hide text on mouseout
@@ -158,74 +159,41 @@ const onMouseMove = (e) =>{
 }
 document.addEventListener('mousemove', onMouseMove);
 
-/* AmCharts.makeChart("map",{
-  "type": "map",
-  "pathToImages": "http://www.amcharts.com/lib/3/images/",
-  "addClassNames": true,
-  "fontSize": 15,
-  "color": "#000000",
-  "projection": "mercator",
-  "backgroundAlpha": 1,
-  "backgroundColor": "rgba(255,255,255,0.51)",
-  "dataProvider": {
-    "map": "worldLow",
-    "getAreasFromMap": true,
-    "images": [
-      {
-        "top": 40,
-        "left": 60,
-        "width": 80,
-        "height": 40,
-        "pixelMapperLogo": true,
-        "imageURL": "http://pixelmap.amcharts.com/static/img/logo-black.svg",
-        "url": "http://www.amcharts.com"
-      }
-    ]
-  },
-  "balloon": {
-    "horizontalPadding": 15,
-    "borderAlpha": 0,
-    "borderThickness": 1,
-    "verticalPadding": 15
-  },
-  "areasSettings": {
-    "color": "rgb(201, 201, 201)",
-    "outlineColor": "rgba(255,255,255,0.51)",
-    "rollOverOutlineColor": "rgba(255,255,255,0.51)",
-    "rollOverBrightness": 20,
-    "selectedBrightness": 20,
-    "selectable": false,
-    "unlistedAreasAlpha": 0,
-    "unlistedAreasOutlineAlpha": 0
-  },
-  "imagesSettings": {
-    "alpha": 1,
-    "color": "rgb(201, 201, 201)",
-    "outlineAlpha": 0,
-    "rollOverOutlineAlpha": 0,
-    "outlineColor": "rgba(255,255,255,0.51)",
-    "rollOverBrightness": 20,
-    "selectedBrightness": 20,
-    "selectable": true
-  },
-  "linesSettings": {
-    "color": "rgb(201, 201, 201)",
-    "selectable": true,
-    "rollOverBrightness": 20,
-    "selectedBrightness": 20
-  },
-  "zoomControl": {
-    "zoomControlEnabled": true,
-    "homeButtonEnabled": true,
-    "panControlEnabled": false,
-    "right": 38,
-    "bottom": 30,
-    "minZoomLevel": 0.25,
-    "gridHeight": 100,
-    "gridAlpha": 0.1,
-    "gridBackgroundAlpha": 0,
-    "gridColor": "#FFFFFF",
-    "draggerAlpha": 1,
-    "buttonCornerRadius": 2
+
+
+
+// Show country areas on popup
+let popup = document.querySelector(".popup");
+let closeBtn = document.getElementsByClassName("close")[0];
+
+for (let index = 0; index < countryArray.length; index++) {
+  const element = countryArray[index];
+  element.addEventListener("click", showPopup);
+}
+
+function showPopup() {
+    popup.style.display = "block";
+}
+
+// close on x
+closeBtn.onclick = function() {
+  popup.style.display = "none";
+}
+
+// close on click outside of box
+window.onclick = function(event) {
+  if (event.target === popup) {
+    popup.style.display = "none";
   }
-}); */
+}
+
+// close on Esc
+window.onkeydown = function(event) {
+  if (event.key === "Escape") {
+    popup.style.display = "none";
+  }
+}
+
+let svg1 = document.querySelector(".svg-container").createElement("img");
+svg1.src = "img/canada.svg";
+document.querySelector(".svg-container").appendChild(svg1);
