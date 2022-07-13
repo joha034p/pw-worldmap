@@ -1,0 +1,116 @@
+/* Global */
+body {
+  margin: 0;
+  background-color: rgba(255,255,255,0);
+}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  cursor: grab;
+}
+
+svg:active {
+  cursor: grabbing;
+}
+
+/* Lande farver */
+.land {
+  fill: rgb(184, 184, 184);
+}
+ 
+#AR,
+#AU,
+#CA,
+#CL,
+#FR,
+#GR,
+#IT,
+#NZ,
+#PT,
+#RO,
+#ES,
+#ZA,
+#DE,
+#UY,
+#US,
+#AT {
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+  transition: .2s;
+}
+
+#AR:hover,
+#AU:hover,
+#CA:hover,
+#CL:hover,
+#FR:hover,
+#GR:hover,
+#IT:hover,
+#NZ:hover,
+#PT:hover,
+#RO:hover,
+#ES:hover,
+#ZA:hover,
+#DE:hover,
+#UY:hover,
+#US:hover,
+#AT:hover {
+  fill: rgb(106, 168, 137);
+}
+
+/* Tooltip text */
+.tooltip {
+  visibility: hidden;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  background-color: #0000009a;
+  color: #fff;
+  font-family: system-ui;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -180%);
+  pointer-events: none;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #0000009a transparent transparent transparent;
+}
+
+
+/* 
+.amcharts-map-area-AR,
+.amcharts-map-area-AU,
+.amcharts-map-area-CA,
+.amcharts-map-area-CL,
+.amcharts-map-area-FR,
+.amcharts-map-area-GR,
+.amcharts-map-area-IT,
+.amcharts-map-area-NZ,
+.amcharts-map-area-PT,
+.amcharts-map-area-RO,
+.amcharts-map-area-ES,
+.amcharts-map-area-ZA,
+.amcharts-map-area-DE,
+.amcharts-map-area-UY,
+.amcharts-map-area-US,
+.amcharts-map-area-AT {
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+} */
