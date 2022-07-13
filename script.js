@@ -1,4 +1,4 @@
-// Global
+// GLOBAL
 let countryArray = [
   document.querySelector("#AR"),
   document.querySelector("#AU"),
@@ -18,7 +18,7 @@ let countryArray = [
   document.querySelector("#AT"),
 ]
 
-//Zoom and drag effect
+//ZOOM AND DRAG
 const maxScale = 5,
    minScale = 0.15;
 
@@ -131,19 +131,20 @@ const maxScale = 5,
 
 
  
- // Mouseover on countries
+ // EVENTLISTENERS ON COUNTRIES
 for (let index = 0; index < countryArray.length; index++) {
   const element = countryArray[index];
   element.addEventListener("mouseover", showName);
   element.addEventListener("mouseout", hideText);
+  element.addEventListener("click", showPopup);
 }
 
 // Display country names
 function showName() {
-  let getCountryName = this.getAttribute("title");
-  document.querySelector(".tooltiptext").innerHTML = `${getCountryName}`;
+  let countryTitle = this.getAttribute("title");
+  document.querySelector(".tooltiptext").innerHTML = `${countryTitle}`;
   document.querySelector(".tooltiptext").style.visibility = "visible";
-  document.querySelector(".country-title").innerHTML = `${getCountryName}`;
+  document.querySelector(".country-title").innerHTML = `${countryTitle}`;
 }
 
 // Hide text on mouseout
@@ -162,38 +163,36 @@ document.addEventListener('mousemove', onMouseMove);
 
 
 
-// Show country areas on popup
-let popup = document.querySelector(".popup");
-let closeBtn = document.getElementsByClassName("close")[0];
-
-for (let index = 0; index < countryArray.length; index++) {
-  const element = countryArray[index];
-  element.addEventListener("click", showPopup);
-}
-
+// POPUP
 function showPopup() {
-    popup.style.display = "block";
-}
+  let popup = document.querySelector(".popup");
+  let closeBtn = document.getElementsByClassName("close")[0];
+  let countryTitle = this.getAttribute("title");
+  let lowerTitle = countryTitle.toLowerCase();
+  let formattedTitle = lowerTitle.replace(/\s/g, '');
+  let img = document.querySelector(".svg-container");
+  popup.style.display = "block";
 
-// close on x
-closeBtn.onclick = function() {
-  popup.style.display = "none";
-}
-
-// close on click outside of box
-window.onclick = function(event) {
-  if (event.target === popup) {
-    popup.style.display = "none";
+  img.src = `img/${formattedTitle}.svg`;
+    
+    // close on x
+    closeBtn.onclick = function() {
+      popup.style.display = "none";
+    }
+    
+    // close on click outside of box
+    window.onclick = function(event) {
+      if (event.target === popup) {
+        popup.style.display = "none";
+      }
+    }
+    
+    // close on Esc
+    window.onkeydown = function(event) {
+      if (event.key === "Escape") {
+        popup.style.display = "none";
+      }
+    }
   }
-}
-
-// close on Esc
-window.onkeydown = function(event) {
-  if (event.key === "Escape") {
-    popup.style.display = "none";
-  }
-}
-
-let svg1 = document.querySelector(".svg-container").createElement("img");
-svg1.src = "img/canada.svg";
-document.querySelector(".svg-container").appendChild(svg1);
+    
+    
