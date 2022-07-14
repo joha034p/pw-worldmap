@@ -94,7 +94,15 @@ svg:active {
 #IT-52,
 #IT-32,
 #IT-55,
-#IT-34 {
+#IT-34,
+#ES-A,
+#ES-LE,
+#ES-MA,
+#ES-PM,
+#ES-SG,
+#ES-LO,
+#ES-V,
+#ES-ZA {
   fill: rgb(42, 74, 58);
   cursor: pointer;
   transition: .2s;
@@ -159,7 +167,15 @@ svg:active {
 #IT-52:hover,
 #IT-32:hover,
 #IT-55:hover,
-#IT-34:hover {
+#IT-34:hover,
+#ES-A:hover,
+#ES-LE:hover,
+#ES-MA:hover,
+#ES-PM:hover,
+#ES-SG:hover,
+#ES-LO:hover,
+#ES-V:hover,
+#ES-ZA:hover {
   fill: rgb(106, 168, 137);
 }
 

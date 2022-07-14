@@ -64,6 +64,15 @@ let areaArray = [
   document.querySelector("#IT-32"),
   document.querySelector("#IT-55"),
   document.querySelector("#IT-34"),
+  /* SPANIEN */
+  document.querySelector("#ES-A"),
+  document.querySelector("#ES-LE"),
+  document.querySelector("#ES-MA"),
+  document.querySelector("#ES-PM"),
+  document.querySelector("#ES-SG"),
+  document.querySelector("#ES-LO"),
+  document.querySelector("#ES-V"),
+  document.querySelector("#ES-ZA"),
 ]
 
 //ZOOM AND DRAG
