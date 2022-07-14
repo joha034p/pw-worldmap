@@ -19,8 +19,36 @@ let countryArray = [
 ]
 
 let areaArray = [
-  document.querySelector("#AU-QLD"),
-  document.querySelector("#AU-WA"),
+  /* FRANKRIG */
+  document.querySelector("#FR-07"),
+  document.querySelector("#FR-67"),
+  document.querySelector("#FR-68"),
+  document.querySelector("#FR-83"),
+  document.querySelector("#FR-04"),
+  document.querySelector("#FR-05"),
+  document.querySelector("#FR-06"),
+  document.querySelector("#FR-13"),
+  document.querySelector("#FR-84"),
+  document.querySelector("#FR-33"),
+  document.querySelector("#FR-21"),
+  document.querySelector("#FR-71"),
+  document.querySelector("#FR-51"),
+  document.querySelector("#FR-31"),
+  document.querySelector("#FR-32"),
+  document.querySelector("#FR-40"),
+  document.querySelector("#FR-65"),
+  document.querySelector("#FR-39"),
+  document.querySelector("#FR-11"),
+  document.querySelector("#FR-12"),
+  document.querySelector("#FR-30"),
+  document.querySelector("#FR-34"),
+  document.querySelector("#FR-66"),
+  document.querySelector("#FR-37"),
+  document.querySelector("#FR-41"),
+  document.querySelector("#FR-44"),
+  document.querySelector("#FR-45"),
+  document.querySelector("#FR-49"),
+  document.querySelector("#FR-69"),
 ]
 
 //ZOOM AND DRAG
