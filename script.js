@@ -18,6 +18,11 @@ let countryArray = [
   document.querySelector("#AT"),
 ]
 
+let areaArray = [
+  document.querySelector("#AU-QLD"),
+  document.querySelector("#AU-WA"),
+]
+
 //ZOOM AND DRAG
 const maxScale = 5,
    minScale = 0.15;
@@ -134,13 +139,13 @@ const maxScale = 5,
  // EVENTLISTENERS ON COUNTRIES
 for (let index = 0; index < countryArray.length; index++) {
   const element = countryArray[index];
-  element.addEventListener("mouseover", showName);
-  element.addEventListener("mouseout", hideText);
+  element.addEventListener("mouseover", showCountryName);
+  element.addEventListener("mouseout", hideCountryText);
   element.addEventListener("click", showPopup);
 }
 
 // Display country names
-function showName() {
+function showCountryName() {
   let countryTitle = this.getAttribute("title");
   document.querySelector(".tooltiptext").innerHTML = `${countryTitle}`;
   document.querySelector(".tooltiptext").style.visibility = "visible";
@@ -148,14 +153,14 @@ function showName() {
   document.querySelector(".siteLink").innerHTML = `Se alle vine fra ${countryTitle}`;
 }
 
-// Hide text on mouseout
-function hideText() {
+// Hide country text on mouseout
+function hideCountryText() {
   document.querySelector(".tooltiptext").style.visibility = "hidden";
 }
 
 // Country name follows cursor
 let tooltip = document.querySelector('.tooltip');
-const onMouseMove = (e) =>{
+const onMouseMove = (e) => {
   tooltip.style.left = e.pageX + 'px';
   tooltip.style.top = e.pageY + 'px';
 }
@@ -171,22 +176,47 @@ function showPopup() {
   let countryTitle = this.getAttribute("title");
   let lowerTitle = countryTitle.toLowerCase();
   let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
-  let img = document.querySelector(".svgfile");
+  /* let img = document.querySelector(".svgfile"); */
+  /* img.src = `img/${formattedTitle}.svg`; */
+
   popup.style.display = "block";
 
-  img.src = `img/${formattedTitle}.svg`;
+  // Eventlisteners on areas
+for (let index = 0; index < areaArray.length; index++) {
+  const element = areaArray[index];
+  element.addEventListener("mouseover", showAreaName);
+  element.addEventListener("mouseout", hideAreaText);
+}
 
+// Display area names
+function showAreaName() {
+  let areaTitle = this.getAttribute("title");
+  document.querySelector(".tooltiptext").style.visibility = "visible";
+  document.querySelector(".tooltiptext").innerHTML = `${areaTitle}`;
+}
+
+// Hide area text on mouseout
+function hideAreaText() {
+  document.querySelector(".tooltiptext").style.visibility = "hidden";
+}
+
+  // Show country SVGs
+  document.querySelector(`.svg-container .${formattedTitle}`).classList.remove("hide");
+
+  // Link to relevant landingpage
   document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`;
     
     // close on x
     closeBtn.onclick = function() {
       popup.style.display = "none";
+      document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
     }
     
     // close on click outside of box
     window.onclick = function(event) {
       if (event.target === popup) {
         popup.style.display = "none";
+        document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
       }
     }
     
@@ -194,6 +224,7 @@ function showPopup() {
     window.onkeydown = function(event) {
       if (event.key === "Escape") {
         popup.style.display = "none";
+        document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
       }
     }
   }
