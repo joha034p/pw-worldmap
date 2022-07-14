@@ -80,7 +80,21 @@ svg:active {
 #FR-44,
 #FR-45,
 #FR-49,
-#FR-69 {
+#FR-69,
+#IT_65,
+#IT-75,
+#IT-72,
+#IT-45,
+#IT-36,
+#IT-25,
+#IT-57,
+#IT-21,
+#IT-88,
+#IT-82,
+#IT-52,
+#IT-32,
+#IT-55,
+#IT-34 {
   fill: rgb(42, 74, 58);
   cursor: pointer;
   transition: .2s;
@@ -131,7 +145,21 @@ svg:active {
 #FR-44:hover,
 #FR-45:hover,
 #FR-49:hover,
-#FR-69:hover {
+#FR-69:hover,
+#IT_65:hover,
+#IT-75:hover,
+#IT-72:hover,
+#IT-45:hover,
+#IT-36:hover,
+#IT-25:hover,
+#IT-57:hover,
+#IT-21:hover,
+#IT-88:hover,
+#IT-82:hover,
+#IT-52:hover,
+#IT-32:hover,
+#IT-55:hover,
+#IT-34:hover {
   fill: rgb(106, 168, 137);
 }
 

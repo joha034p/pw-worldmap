@@ -49,6 +49,21 @@ let areaArray = [
   document.querySelector("#FR-45"),
   document.querySelector("#FR-49"),
   document.querySelector("#FR-69"),
+  /* ITALIEN */
+  document.querySelector("#IT_65"),
+  document.querySelector("#IT-75"),
+  document.querySelector("#IT-72"),
+  document.querySelector("#IT-45"),
+  document.querySelector("#IT-36"),
+  document.querySelector("#IT-25"),
+  document.querySelector("#IT-57"),
+  document.querySelector("#IT-21"),
+  document.querySelector("#IT-88"),
+  document.querySelector("#IT-82"),
+  document.querySelector("#IT-52"),
+  document.querySelector("#IT-32"),
+  document.querySelector("#IT-55"),
+  document.querySelector("#IT-34"),
 ]
 
 //ZOOM AND DRAG
