@@ -73,6 +73,12 @@ let areaArray = [
   document.querySelector("#ES-LO"),
   document.querySelector("#ES-V"),
   document.querySelector("#ES-ZA"),
+  /* USA */
+  document.querySelector("#US-CA"),
+  document.querySelector("#US-OR"),
+  /* AUSTRALIEN */
+  document.querySelector("#AU-SA"),
+  document.querySelector("#AU-VIC"),
 ]
 
 //ZOOM AND DRAG

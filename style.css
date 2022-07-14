@@ -102,7 +102,11 @@ svg:active {
 #ES-SG,
 #ES-LO,
 #ES-V,
-#ES-ZA {
+#ES-ZA,
+#US-CA,
+#US-OR,
+#AU-SA,
+#AU-VIC {
   fill: rgb(42, 74, 58);
   cursor: pointer;
   transition: .2s;
@@ -175,7 +179,11 @@ svg:active {
 #ES-SG:hover,
 #ES-LO:hover,
 #ES-V:hover,
-#ES-ZA:hover {
+#ES-ZA:hover,
+#US-CA:hover,
+#US-OR:hover,
+#AU-SA:hover,
+#AU-VIC:hover {
   fill: rgb(106, 168, 137);
 }
 
