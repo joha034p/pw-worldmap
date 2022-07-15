@@ -79,6 +79,17 @@ let areaArray = [
   /* AUSTRALIEN */
   document.querySelector("#AU-SA"),
   document.querySelector("#AU-VIC"),
+  /* CHILE */
+  document.querySelector("#CL-LI"),
+  document.querySelector("#CL-VS"),
+  /* ARGENTINA */
+  document.querySelector("#AR-A"),
+  document.querySelector("#AR-M"),
+  document.querySelector("#AR-R"),
+  document.querySelector("#AR-U"),
+  /* TYSKLAND */
+  document.querySelector("#DE-RP"),
+  document.querySelector("#DE-BW"),
 ]
 
 //ZOOM AND DRAG

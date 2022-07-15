@@ -106,7 +106,15 @@ svg:active {
 #US-CA,
 #US-OR,
 #AU-SA,
-#AU-VIC {
+#AU-VIC,
+#CL-LI,
+#CL-VS,
+#AR-A,
+#AR-M,
+#AR-R,
+#AR-U,
+#DE-RP,
+#DE-BW {
   fill: rgb(42, 74, 58);
   cursor: pointer;
   transition: .2s;
@@ -183,7 +191,15 @@ svg:active {
 #US-CA:hover,
 #US-OR:hover,
 #AU-SA:hover,
-#AU-VIC:hover {
+#AU-VIC:hover,
+#CL-LI:hover,
+#CL-VS:hover,
+#AR-A:hover,
+#AR-M:hover,
+#AR-R:hover,
+#AR-U:hover,
+#DE-RP:hover,
+#DE-BW:hover {
   fill: rgb(106, 168, 137);
 }
 
