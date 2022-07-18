@@ -16,6 +16,8 @@ let countryArray = [
   document.querySelector("#UY"),
   document.querySelector("#US"),
   document.querySelector("#AT"),
+  /* document.querySelector("#DK"),
+  document.querySelector("#IE"), */
 ]
 
 let areaArray = [
@@ -90,6 +92,20 @@ let areaArray = [
   /* TYSKLAND */
   document.querySelector("#DE-RP"),
   document.querySelector("#DE-BW"),
+  /* NEW ZEALAND */
+  document.querySelector("#NZ-HKB"),
+  document.querySelector("#NZ-MBH"),
+  document.querySelector("#NZ-OTA"),
+  /* PORTUGAL */
+  document.querySelector("#PT-13"),
+  document.querySelector("#PT-18"),
+  /* ØSTRIG */
+  document.querySelector("#AT-1"),
+  document.querySelector("#AT-6"),
+  /* SYDAFRIKA */
+  document.querySelector("#ZA-WC"),
+  /* IRLAND */
+  document.querySelector("#IE-D"),
 ]
 
 //ZOOM AND DRAG
@@ -245,12 +261,10 @@ function showPopup() {
   let countryTitle = this.getAttribute("title");
   let lowerTitle = countryTitle.toLowerCase();
   let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
-  /* let img = document.querySelector(".svgfile"); */
-  /* img.src = `img/${formattedTitle}.svg`; */
 
   popup.style.display = "block";
 
-  // Eventlisteners on areas
+// Eventlisteners on areas
 for (let index = 0; index < areaArray.length; index++) {
   const element = areaArray[index];
   element.addEventListener("mouseover", showAreaName);
@@ -271,6 +285,10 @@ function hideAreaText() {
 
   // Show country SVGs
   document.querySelector(`.svg-container .${formattedTitle}`).classList.remove("hide");
+
+  // Set viewbox on countries
+  let findSVG = document.querySelector(`.svg-container .${formattedTitle}`);
+  findSVG.setAttribute("viewBox", "0 0 1000 1000");
 
   // Link to relevant landingpage
   document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`;
