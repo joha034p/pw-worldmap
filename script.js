@@ -16,8 +16,12 @@ let countryArray = [
   document.querySelector("#UY"),
   document.querySelector("#US"),
   document.querySelector("#AT"),
-  /* document.querySelector("#DK"),
-  document.querySelector("#IE"), */
+  document.querySelector("#DK"),
+  document.querySelector("#IE"),
+  document.querySelector("#IS"),
+  document.querySelector("#MX"),
+  document.querySelector("#CH"),
+  document.querySelector("#GB"),
 ]
 
 let areaArray = [
@@ -106,6 +110,24 @@ let areaArray = [
   document.querySelector("#ZA-WC"),
   /* IRLAND */
   document.querySelector("#IE-D"),
+  document.querySelector("#GB-NIR"),
+  /* DANMARK */
+  document.querySelector("#DK-85"),
+  document.querySelector("#DK-83"),
+  /* RUMÆNIEN */
+  document.querySelector("#RO-PH"),
+  /* URUGUAY */
+  document.querySelector("#UY-MA"),
+  /* ISLAND */
+  document.querySelector("#IS-1"),
+  /* MEXICO */
+  document.querySelector("#MX-JAL"),
+  document.querySelector("#MX-DF"),
+  /* SCHWEIZ */
+  document.querySelector("#CH-ZG"),
+  /* STORBRITANNIEN */
+  document.querySelector("#GB-UKN"),
+  document.querySelector("#GB-UKJ"),
 ]
 
 //ZOOM AND DRAG

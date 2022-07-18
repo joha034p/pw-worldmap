@@ -54,6 +54,10 @@ svg:active {
 #AT,
 #DK,
 #IE,
+#IS,
+#MX,
+#CH,
+#GB,
 /*AREAS*/
 #FR-07,
 #FR-67,
@@ -126,7 +130,18 @@ svg:active {
 #AT-1,
 #AT-6,
 #ZA-WC,
-#IE-D {
+#IE-D,
+#GB-NIR,
+#DK-85,
+#DK-83,
+#RO-PH,
+#UY-MA,
+#IS-1,
+#MX-JAL,
+#MX-DF,
+#CH-ZG,
+#GB-UKN,
+#GB-UKJ {
   fill: rgb(42, 74, 58);
   cursor: pointer;
   transition: .2s;
@@ -151,6 +166,10 @@ svg:active {
 #AT:hover,
 #DK:hover,
 #IE:hover,
+#IS:hover,
+#MX:hover,
+#CH:hover,
+#GB:hover,
 /*AREAS*/
 #FR-07:hover,
 #FR-67:hover,
@@ -223,7 +242,18 @@ svg:active {
 #AT-1:hover,
 #AT-6:hover,
 #ZA-WC:hover,
-#IE-D:hover {
+#IE-D:hover,
+#GB-NIR:hover,
+#DK-85:hover,
+#DK-83:hover,
+#RO-PH:hover,
+#UY-MA:hover,
+#IS-1:hover,
+#MX-JAL:hover,
+#MX-DF:hover,
+#CH-ZG:hover,
+#GB-UKN:hover,
+#GB-UKJ:hover {
   fill: rgb(106, 168, 137);
 }
 
