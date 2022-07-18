@@ -303,9 +303,16 @@ svg:active {
 .siteLink {
   all: unset;
   cursor: pointer;
+  color: white;
   padding: 8px 12px;
   border-radius: 3px;
   box-shadow: #0000002c 0px 1px 3px 0px;
+  background-color: rgb(42, 74, 58);
+  transition: .2s;
+}
+
+.siteLink:hover {
+  background-color: rgb(58, 100, 79);
 }
 
 .close {
