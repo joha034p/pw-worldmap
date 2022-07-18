@@ -291,6 +291,7 @@ for (let index = 0; index < areaArray.length; index++) {
   const element = areaArray[index];
   element.addEventListener("mouseover", showAreaName);
   element.addEventListener("mouseout", hideAreaText);
+  element.addEventListener("click", linkToAreaLandingpage);
 }
 
 // Display area names
@@ -305,6 +306,16 @@ function hideAreaText() {
   document.querySelector(".tooltiptext").style.visibility = "hidden";
 }
 
+// Link to relevant area landingpage
+function linkToAreaLandingpage() {
+  let areaTitle = this.getAttribute("title");
+  if (areaTitle.includes(" ")){
+    window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}`);
+  } else {
+    window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}?Region=%5B${areaTitle}%5D`);
+  }
+}
+
   // Show country SVGs
   document.querySelector(`.svg-container .${formattedTitle}`).classList.remove("hide");
 
@@ -312,7 +323,7 @@ function hideAreaText() {
   let findSVG = document.querySelector(`.svg-container .${formattedTitle}`);
   findSVG.setAttribute("viewBox", "0 0 1000 1000");
 
-  // Link to relevant landingpage
+  // Link to relevant landingpage on button
   document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`;
     
     // close on x
