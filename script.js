@@ -1,4 +1,13 @@
 // GLOBAL
+window.addEventListener("DOMContentLoaded", start);
+
+function start() {
+  zoomAndDrag();
+  countryEventlisteners();
+  areaEventlisteners();
+}
+
+// Array of used countries
 let countryArray = [
   document.querySelector("#AR"),
   document.querySelector("#AU"),
@@ -24,6 +33,7 @@ let countryArray = [
   document.querySelector("#GB"),
 ]
 
+// Array of used areas
 let areaArray = [
   /* FRANKRIG */
   document.querySelector("#FR-07"),
@@ -130,7 +140,10 @@ let areaArray = [
   document.querySelector("#GB-UKJ"),
 ]
 
+
+
 //ZOOM AND DRAG
+function zoomAndDrag() {
 const maxScale = 5,
    minScale = 0.15;
 
@@ -239,16 +252,22 @@ const maxScale = 5,
  document.querySelector('svg').addEventListener('mousewheel', zoom);
  svg.addEventListener('mousemove', drag);
  window.addEventListener('mouseup', endDrag);
-
+}
 
 
  
- // EVENTLISTENERS ON COUNTRIES
+// EVENTLISTENERS ON COUNTRIES
+ function countryEventlisteners() {
 for (let index = 0; index < countryArray.length; index++) {
   const element = countryArray[index];
   element.addEventListener("mouseover", showCountryName);
   element.addEventListener("mouseout", hideCountryText);
   element.addEventListener("click", showPopup);
+  element.style.cssText = `
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Display country names
@@ -258,11 +277,21 @@ function showCountryName() {
   document.querySelector(".tooltiptext").style.visibility = "visible";
   document.querySelector(".country-title").innerHTML = `${countryTitle}`;
   document.querySelector(".siteLink").innerHTML = `Se alle vine fra ${countryTitle}`;
+  this.style.cssText = `
+  fill: rgb(106, 168, 137);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Hide country text on mouseout
 function hideCountryText() {
   document.querySelector(".tooltiptext").style.visibility = "hidden";
+  this.style.cssText = `
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Country name follows cursor
@@ -272,16 +301,22 @@ const onMouseMove = (e) => {
   tooltip.style.top = e.pageY + 'px';
 }
 document.addEventListener('mousemove', onMouseMove);
-
+}
 
 
 
 // EVENTLISTENERS ON AREAS
+function areaEventlisteners() {
 for (let index = 0; index < areaArray.length; index++) {
   const element = areaArray[index];
   element.addEventListener("mouseover", showAreaName);
   element.addEventListener("mouseout", hideAreaText);
   element.addEventListener("click", linkToAreaLandingpage);
+  element.style.cssText = `
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Display area names
@@ -289,11 +324,21 @@ function showAreaName() {
   let areaTitle = this.getAttribute("title");
   document.querySelector(".tooltiptext").style.visibility = "visible";
   document.querySelector(".tooltiptext").innerHTML = `${areaTitle}`;
+  this.style.cssText = `
+  fill: rgb(106, 168, 137);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Hide area text on mouseout
 function hideAreaText() {
   document.querySelector(".tooltiptext").style.visibility = "hidden";
+  this.style.cssText = `
+  fill: rgb(42, 74, 58);
+  cursor: pointer;
+  transition: .2s;
+  `;
 }
 
 // Link to relevant area landingpage
@@ -301,8 +346,9 @@ function linkToAreaLandingpage() {
   let areaTitle = this.getAttribute("title").replace(/ô/g,"o");
   let getParent = this.parentElement.parentElement.parentElement.parentElement;
   let countryTitle = getParent.querySelector(".country-title").innerHTML;
-  let lowerTitle = countryTitle.toLowerCase();
-  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
+  // Alternative link solution
+  /* let lowerTitle = countryTitle.toLowerCase();
+  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa"); */
 
   if (areaTitle.includes(",")) {
     /* window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}`); */
@@ -314,7 +360,7 @@ function linkToAreaLandingpage() {
     window.open(`https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D&Region=%5B${areaTitle}%5D`);
   }
 }
-
+}
 
 
 
@@ -336,8 +382,9 @@ function showPopup() {
   findSVG.setAttribute("viewBox", "0 0 1000 1000");
 
   // Link to relevant landingpage on button
-  /* document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`; */
   document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D`;
+  // Alternative link solution
+  /* document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`; */
     
     // close on x
     closeBtn.onclick = function() {
@@ -360,4 +407,4 @@ function showPopup() {
         document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
       }
     }
-  }
+}
