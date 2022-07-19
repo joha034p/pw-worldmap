@@ -276,17 +276,7 @@ document.addEventListener('mousemove', onMouseMove);
 
 
 
-// POPUP
-function showPopup() {
-  let popup = document.querySelector(".popup");
-  let closeBtn = document.getElementsByClassName("close")[0];
-  let countryTitle = this.getAttribute("title");
-  let lowerTitle = countryTitle.toLowerCase();
-  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
-
-  popup.style.display = "block";
-
-// Eventlisteners on areas
+// EVENTLISTENERS ON AREAS
 for (let index = 0; index < areaArray.length; index++) {
   const element = areaArray[index];
   element.addEventListener("mouseover", showAreaName);
@@ -308,13 +298,35 @@ function hideAreaText() {
 
 // Link to relevant area landingpage
 function linkToAreaLandingpage() {
-  let areaTitle = this.getAttribute("title");
-  if (areaTitle.includes(" ")){
-    window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}`);
+  let areaTitle = this.getAttribute("title").replace(/ô/g,"o");
+  let getParent = this.parentElement.parentElement.parentElement.parentElement;
+  let countryTitle = getParent.querySelector(".country-title").innerHTML;
+  let lowerTitle = countryTitle.toLowerCase();
+  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
+
+  if (areaTitle.includes(",")) {
+    /* window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}`); */
+    window.open(`https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D`);
+  } if (areaTitle.includes(" ")) {
+    window.open(`https://philipsonwine.com/produkter?Search=${areaTitle}`);
   } else {
-    window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}?Region=%5B${areaTitle}%5D`);
+    /* window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}?Region=%5B${areaTitle}%5D`); */
+    window.open(`https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D&Region=%5B${areaTitle}%5D`);
   }
 }
+
+
+
+
+// POPUP
+function showPopup() {
+  let popup = document.querySelector(".popup");
+  let closeBtn = document.getElementsByClassName("close")[0];
+  let countryTitle = this.getAttribute("title");
+  let lowerTitle = countryTitle.toLowerCase();
+  let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
+
+  popup.style.display = "block";
 
   // Show country SVGs
   document.querySelector(`.svg-container .${formattedTitle}`).classList.remove("hide");
@@ -324,7 +336,8 @@ function linkToAreaLandingpage() {
   findSVG.setAttribute("viewBox", "0 0 1000 1000");
 
   // Link to relevant landingpage on button
-  document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`;
+  /* document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`; */
+  document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D`;
     
     // close on x
     closeBtn.onclick = function() {
@@ -348,5 +361,3 @@ function linkToAreaLandingpage() {
       }
     }
   }
-    
-    
