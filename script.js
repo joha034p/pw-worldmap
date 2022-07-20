@@ -358,8 +358,8 @@ function linkToAreaLandingpage() {
   } else {
     /* window.open(`https://philipsonwine.com/vin/lande/${formattedTitle}?Region=%5B${areaTitle}%5D`); */
     window.open(`https://philipsonwine.com/vin/typer/alle-vine?Country=%5B${countryTitle}%5D&Region=%5B${areaTitle}%5D`);
+    }
   }
-}
 }
 
 
