@@ -147,9 +147,9 @@ function zoomAndDrag() {
 const maxScale = 5,
    minScale = 0.15;
 
- var selected,
+ let selected,
    scale = 1,
-   svg = document.querySelector('svg');
+   svg = document.querySelector('#worldsvg');
 
  function beginDrag(e) {
    e.stopPropagation();
@@ -248,8 +248,8 @@ const maxScale = 5,
    let t = newZoomMatrix;
  }
 
- document.querySelector('svg').addEventListener('mousedown', beginDrag);
- document.querySelector('svg').addEventListener('mousewheel', zoom);
+ svg.addEventListener('mousedown', beginDrag);
+ svg.addEventListener('mousewheel', zoom);
  svg.addEventListener('mousemove', drag);
  window.addEventListener('mouseup', endDrag);
 }

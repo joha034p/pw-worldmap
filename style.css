@@ -9,7 +9,8 @@
 
 body {
   margin: 0;
-  background-color: rgba(255,255,255,0);
+  background-color: #cddee5;
+  overflow: hidden;
 }
 
 #content-wrapper {
@@ -20,24 +21,24 @@ body {
   overflow: hidden;
 }
 
-svg {
+#worldsvg {
   width: 100vw;
   height: 100vh;
   margin: auto;
   cursor: grab;
 }
 
-svg:active {
+#worldsvg:active {
   cursor: grabbing;
 }
 
 .land {
-  fill: rgb(184, 184, 184);
+  fill: #ffffff;
 }
 
 .countryWithAreas {
   width: 100%;
-  height: 100%;
+  height: 140%;
   cursor: auto;
 }
 
@@ -86,18 +87,18 @@ svg:active {
 }
 
 .popup-content {
-  background-color: #fefefe;
+  background-color: #cddee5;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 650px;
-  height: 650px;
+  border-radius: 5px;
+  width: 60%;
+  height: 70%;
   overflow: hidden;
   text-align: center;
 }
 
 .svg-container {
-  height: 80%;
+  height: 70%;
 }
 
 .svgfile {
