@@ -5,6 +5,7 @@ function start() {
   zoomAndDrag();
   countryEventlisteners();
   areaEventlisteners();
+  introEventlisteners();
 }
 
 // Array of used countries
@@ -138,6 +139,7 @@ let areaArray = [
   /* STORBRITANNIEN */
   document.querySelector("#GB-UKN"),
   document.querySelector("#GB-UKJ"),
+  document.querySelector("#GB-UKM"),
 ]
 
 
@@ -145,11 +147,11 @@ let areaArray = [
 //ZOOM AND DRAG
 function zoomAndDrag() {
 const maxScale = 5,
-   minScale = 0.15;
+   minScale = 0.80;
 
- var selected,
+ let selected,
    scale = 1,
-   svg = document.querySelector('svg');
+   svg = document.querySelector('#worldsvg');
 
  function beginDrag(e) {
    e.stopPropagation();
@@ -214,8 +216,8 @@ const maxScale = 5,
    e.preventDefault();
 
    let delta = e.wheelDelta,
-     container = document.querySelector('svg .main-container'),
-     scaleStep = delta > 0 ? 1.25 : 0.8;
+     container = document.querySelector('#worldsvg .main-container'),
+     scaleStep = delta > 0 ? 1.1 : 0.9;
 
    if (scale * scaleStep > maxScale) {
      scaleStep = maxScale / scale;
@@ -248,8 +250,8 @@ const maxScale = 5,
    let t = newZoomMatrix;
  }
 
- document.querySelector('svg').addEventListener('mousedown', beginDrag);
- document.querySelector('svg').addEventListener('mousewheel', zoom);
+ svg.addEventListener('mousedown', beginDrag);
+ svg.addEventListener('mousewheel', zoom);
  svg.addEventListener('mousemove', drag);
  window.addEventListener('mouseup', endDrag);
 }
@@ -367,13 +369,16 @@ function linkToAreaLandingpage() {
 // POPUP
 function showPopup() {
   let popup = document.querySelector(".popup");
+  let popupContent = document.querySelector(".popup-content");
   let closeBtn = document.getElementsByClassName("close")[0];
   let countryTitle = this.getAttribute("title");
   let lowerTitle = countryTitle.toLowerCase();
   let formattedTitle = lowerTitle.replace(/ /g,"-").replace(/æ/g,"ae").replace(/ø/g,"oe").replace(/å/g,"aa");
 
+  // Show popup
+  popupContent.classList.add("fadeIn");
   popup.style.display = "block";
-
+  
   // Show country SVGs
   document.querySelector(`.svg-container .${formattedTitle}`).classList.remove("hide");
 
@@ -386,13 +391,13 @@ function showPopup() {
   // Alternative link solution
   /* document.querySelector(".siteLink").href = `https://philipsonwine.com/vin/lande/${formattedTitle}`; */
     
-    // close on x
+    // close popup on x
     closeBtn.onclick = function() {
       popup.style.display = "none";
       document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
     }
     
-    // close on click outside of box
+    // close popup on click outside of box
     window.onclick = function(event) {
       if (event.target === popup) {
         popup.style.display = "none";
@@ -400,11 +405,27 @@ function showPopup() {
       }
     }
     
-    // close on Esc
+    // close popup on Esc
     window.onkeydown = function(event) {
       if (event.key === "Escape") {
-        popup.style.display = "none";
+          popup.style.display = "none";
         document.querySelector(`.svg-container .${formattedTitle}`).classList.add("hide");
       }
     }
+}
+
+
+
+// EVENTLISTENERS ON INTRO
+function introEventlisteners() {
+  let intro = document.querySelector(".intro-guide");
+  document.querySelector("#worldsvg").addEventListener("mousedown", closeGuide);
+  document.querySelector("#worldsvg").addEventListener("mousewheel", closeGuide);
+  
+  function closeGuide() {
+    intro.style.animation ="introFadeOut .3s 1";
+    intro.addEventListener("animationend", ()=>{
+      intro.style.display = "none";
+    });
+  }
 }
